@@ -1,1 +1,1 @@
-# GateWay-Tech
+# Qube Technology
