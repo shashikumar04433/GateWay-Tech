@@ -7,12 +7,12 @@
    - name: Stopping the node port service
      shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
      
-   - pause: seconds=10
+   - pause: seconds=5
 
    - name: Stopping the deployment
      shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
      
-   - pause: seconds=10
+   - pause: seconds=8
      
    - name: remove the old manifest files
      shell: rm -rf /root/*.yaml
@@ -25,9 +25,9 @@
    - name: Create the deployment
      shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
      
-   - pause: seconds=10
+   - pause: seconds=8
      
    - name: Create the NodePort service
-     shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
+     shell: kubectl create -f /root/gatewaytech-sv-np.yaml
      
    - pause: seconds=5
