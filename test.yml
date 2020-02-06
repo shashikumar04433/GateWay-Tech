@@ -1,0 +1,8 @@
+---
+ - name: Gateway Tech UI deployment
+   hosts: k8s
+   become: True
+
+   tasks:
+   - name: display the existing Docker Containers
+     shell: ls -ltr
