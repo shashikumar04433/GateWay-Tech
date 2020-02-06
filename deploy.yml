@@ -14,4 +14,6 @@
      shell: rm -rf /root/*.yaml
      
    - name: copy the manifest files from git to remote
-     copy: src=*.yaml dest=/root/
+     copy: src=gatewaytech-sv-np.yaml dest=/root/gatewaytech-sv-np.yaml owner=root mode=755
+     
+   - copy: src=gatewaytech-ui-rs.yaml dest=/root/gatewaytech-ui-rs.yaml owner=root mode=755
