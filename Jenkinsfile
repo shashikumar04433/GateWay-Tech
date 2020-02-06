@@ -60,7 +60,7 @@ pipeline
 					dockerImage.push()
 					// sh 'docker rmi $(docker images -a -q)'
 					sh 'docker images'
-					sh 'docker rmi $dockerImage'
+					// sh 'docker rmi $dockerImage'
 				}
 			}
 		}
