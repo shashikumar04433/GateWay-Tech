@@ -6,6 +6,8 @@
    tasks:
    - name: Stopping the node port service
      shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
+     
+   - pause: seconds=5
 
    - name: Stopping the deployment
      shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
@@ -20,6 +22,8 @@
    
    - name: Create the deployment
      shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
+     
+   - pause: seconds=5
      
    - name: Create the NodePort service
      shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
