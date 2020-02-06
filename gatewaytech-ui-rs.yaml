@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatewaytech-deployment
+  labels: 
+   app: gatewaytech-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: gatewaytech-app
+  template:
+    metadata:
+      labels:
+        app: gatewaytech-app
+    spec:
+      containers: 
+      - name: gatewaytech-container
+        image: gatewaytech/gatewaytech-ui:9
+        ports: 
+        - containerPort: 80
