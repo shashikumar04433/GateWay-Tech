@@ -4,11 +4,11 @@
    become: True
 
    tasks:
-   #- name: Stopping the node port service
-   #  shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
+   - name: Stopping the node port service
+     shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
 
-   #- name: Stopping the deployment
-   #  shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
+   - name: Stopping the deployment
+     shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
      
    - name: remove the old manifest files
      shell: rm -rf /root/*.yaml
@@ -17,3 +17,9 @@
      copy: src=gatewaytech-sv-np.yaml dest=/root/gatewaytech-sv-np.yaml owner=root mode=755
      
    - copy: src=gatewaytech-ui-rs.yaml dest=/root/gatewaytech-ui-rs.yaml owner=root mode=755
+   
+   - name: Create the deployment
+     shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
+     
+   - name: Create the NodePort service
+     shell: kubectl create -f /root/gatewaytech-ui-rs.yaml
