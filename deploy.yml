@@ -9,3 +9,6 @@
 
    - name: Stopping the deployment
      shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
+     
+   - name: remove the old manifest files
+     shell: rm -rf /root/*.yaml
