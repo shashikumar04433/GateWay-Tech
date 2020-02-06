@@ -41,7 +41,7 @@ pipeline
 				script 
 				{
 					echo 'Starting the Image Building'
-					dockerImage = docker.build "${dockerImageTag}"
+					// dockerImage = docker.build "${dockerImageTag}"
 					sh 'docker images'
 					sh 'docker ps -a'
 					echo "$dockerImage"
@@ -56,8 +56,8 @@ pipeline
 				echo "Pushing Docker image to Registory"
 				script
 				{
-					sh 'docker login --username="anandgit71" --password="anandgit12" ${dockerRegistry}'
-					dockerImage.push()
+					// sh 'docker login --username="anandgit71" --password="anandgit12" ${dockerRegistry}'
+					// dockerImage.push()
 					// sh 'docker rmi $(docker images -a -q)'
 					// sh 'docker images'
 				}
@@ -70,8 +70,9 @@ pipeline
 			{
 				script
 				{
-					sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory --user ubuntu'
+					// sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory --user ubuntu'
 					// sh ' sh deploy.sh '
+					sh 'ansible-playbook test.yml -i /etc/ansible/inventory --user ubuntu'
 				}
 			}
 		}
