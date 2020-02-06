@@ -16,6 +16,6 @@ spec:
     spec:
       containers: 
       - name: gatewaytech-container
-        image: gatewaytech/gatewaytech-ui:9
+        image: gatewaytech/gatewaytech-ui:buildnumber
         ports: 
         - containerPort: 80
