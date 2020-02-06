@@ -2,7 +2,6 @@
 def dockerImageRepo = 'gatewaytech/gatewaytech-ui'
 def dockerImageTag
 def dockerImage
-def dockerImageTagNew
 def dockerRegistry = 'hub.docker.com'
 
 pipeline
@@ -27,11 +26,25 @@ pipeline
 				checkout scm
 				script 
 				{
-					dockerImageTag="$BUILD_NUMBER"
-					echo "$dockerImageTag"
-					dockerImageTagNew="$dockerImageRepo"+":"+"$BUILD_NUMBER"
-					echo "$dockerImageTagNew"
 
+					dockerImageTag="$dockerImageRepo"+":"+"$BUILD_NUMBER"
+					echo "Created a Tag for uploading an Image to Registry based on Build_Number : $dockerImageTag"
+
+				}
+			}
+		}
+
+		stage('Build the Image')
+		{
+			steps
+			{
+				script 
+				{
+					echo 'Starting the Image Building'
+					dockerImage = docker.build "${dockerImageTag}"
+					sh 'docker images'
+					sh 'docker ps -a'
+					echo "$dockerImage"
 				}
 			}
 		}
