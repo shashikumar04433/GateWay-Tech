@@ -72,7 +72,7 @@ pipeline
 				{
 					// sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory --user ubuntu'
 					// sh ' sh deploy.sh '
-					sh 'ansible-playbook test.yml -i /etc/ansible/inventory --user ubuntu'
+					sh 'ansible-playbook test.yml -i /etc/ansible/inventory -u ubuntu'
 				}
 			}
 		}
