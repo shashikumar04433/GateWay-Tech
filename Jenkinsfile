@@ -71,7 +71,7 @@ pipeline
 			{
 				script
 				{
-					sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory - ubuntu'
+					sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory -u ubuntu'
 					// sh ' sh deploy.sh '
 					// sh 'ansible-playbook test.yml -i /etc/ansible/inventory -u ubuntu'
 				}
