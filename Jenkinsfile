@@ -29,6 +29,7 @@ pipeline
 
 					dockerImageTag="$dockerImageRepo"+":"+"$BUILD_NUMBER"
 					echo "Created a Tag for uploading an Image to Registry based on Build_Number : $dockerImageTag"
+					sh ''' sed -i 's/buildnumber/$BUILD_NUMBER/g' gatewaytech-ui-rs.yaml '''
 
 				}
 			}
@@ -71,7 +72,8 @@ pipeline
 			{
 				script
 				{
-					sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory -u ubuntu'
+					echo "done"
+					//sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory -u ubuntu'
 					// sh ' sh deploy.sh '
 					// sh 'ansible-playbook test.yml -i /etc/ansible/inventory -u ubuntu'
 				}
