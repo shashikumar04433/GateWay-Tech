@@ -3,6 +3,7 @@ def dockerImageRepo = 'gatewaytech/gatewaytech-ui'
 def dockerImageTag
 def dockerImage
 def dockerRegistry = 'hub.docker.com'
+def bu_nu
 
 pipeline
 {
@@ -16,6 +17,8 @@ pipeline
 				deleteDir()
 				echo "the build number is ${currentBuild.number}"
 				echo 'Cleanup Done'
+				bu_nu=${currentBuild.number}
+				
 			}
 		}
 		
@@ -29,7 +32,7 @@ pipeline
 
 					dockerImageTag="$dockerImageRepo"+":"+"$BUILD_NUMBER"
 					echo "Created a Tag for uploading an Image to Registry based on Build_Number : $dockerImageTag"
-					sh ''' sed -i 's/buildnumber/$BUILD_NUMBER/g' gatewaytech-ui-rs.yaml '''
+					sh ' sed -i "s/buildnumber/$BUILD_NUMBER/g" gatewaytech-ui-rs.yaml '
 					sh 'cat gatewaytech-ui-rs.yaml'
 
 				}
