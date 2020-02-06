@@ -7,14 +7,5 @@
    - name: Stopping the node port service
      shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
 
-   - name: Stopping the deployment 
-     shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
-
-   - name: Cheking the pods in the cluster
-     shell: kubectl get pods
-
-   - name: Create the deployment
-     shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
-
-   - name: Create the NodePort service
-     shell: kubectl delete -f /root/gatewaytech-sv-np.yaml
+   - name: Stopping the deployment
+     shell: kubectl delete -f /root/gatewaytech-ui-rs.yaml
