@@ -48,7 +48,7 @@ pipeline
 				}
 			}
 		}
-		
+
 		stage('Publish Docker Images to DockerHub')
 		{
 			steps
@@ -63,5 +63,27 @@ pipeline
 				}
 			}
 		}
+
+		stage('Remote Deployment')
+		{
+			steps
+			{
+				script
+				{
+					sh 'ansible-playbook deploy.yml -i /etc/ansible/inventory --user ubuntu'
+					// sh ' sh deploy.sh '
+				}
+			}
+		}
+
+		/*
+		post {
+        always {
+        		sh 'docker rm $dockerImage'
+                sh 'docker logout hub.docker.com'
+                deleteDir()
+            }
+        }
+        */
 	}
 }
