@@ -30,6 +30,7 @@ pipeline
 					dockerImageTag="$dockerImageRepo"+":"+"$BUILD_NUMBER"
 					echo "Created a Tag for uploading an Image to Registry based on Build_Number : $dockerImageTag"
 					sh ''' sed -i 's/buildnumber/$BUILD_NUMBER/g' gatewaytech-ui-rs.yaml '''
+					sh 'cat gatewaytech-ui-rs.yaml'
 
 				}
 			}
