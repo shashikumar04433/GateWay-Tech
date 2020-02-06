@@ -2,6 +2,7 @@
 def dockerImageRepo = 'gatewaytech/gatewaytech-ui'
 def dockerImageTag
 def dockerImage
+def dockerImageTagNew
 def dockerRegistry = 'hub.docker.com'
 
 pipeline
@@ -27,6 +28,10 @@ pipeline
 				script 
 				{
 					dockerImageTag="$BUILD_NUMBER"
+					echo "$dockerImageTag"
+					dockerImageTagNew="$dockerImageRepo"+"$BUILD_NUMBER"
+					echo "$dockerImageTagNew"
+
 				}
 			}
 		}
