@@ -4,5 +4,17 @@
    become: True
 
    tasks:
-   - name: testing
-     ping:
+   - name: Stopping the node port service
+     shell: kubectl delete -f gatewaytech-sv-np.yaml
+
+   - name: Stopping the deployment 
+     shell: kubectl delete -f gatewaytech-sv-np.yaml
+
+   - name: Cheking the pods in the cluster
+     shell: kubectl get pods
+
+   - name: Create the deployment
+     shell: kubectl delete -f gatewaytech-sv-np.yaml
+
+   - name: Create the NodePort service
+     shell: kubectl delete -f gatewaytech-sv-np.yaml
