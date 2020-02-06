@@ -12,3 +12,6 @@
      
    - name: remove the old manifest files
      shell: rm -rf /root/*.yaml
+     
+   - name: copy the manifest files from git to remote
+     copy: src=*.yaml dest=/root/
