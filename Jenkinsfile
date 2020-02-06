@@ -29,7 +29,7 @@ pipeline
 				{
 					dockerImageTag="$BUILD_NUMBER"
 					echo "$dockerImageTag"
-					dockerImageTagNew="$dockerImageRepo"+"$BUILD_NUMBER"
+					dockerImageTagNew="$dockerImageRepo"+":"+"$BUILD_NUMBER"
 					echo "$dockerImageTagNew"
 
 				}
