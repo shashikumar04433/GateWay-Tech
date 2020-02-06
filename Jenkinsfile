@@ -17,7 +17,7 @@ pipeline
 				deleteDir()
 				echo "the build number is ${currentBuild.number}"
 				echo 'Cleanup Done'
-				bu_nu=${currentBuild.number}
+				bu_nu="${currentBuild.number}"
 				
 			}
 		}
